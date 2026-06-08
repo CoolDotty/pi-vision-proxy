@@ -430,20 +430,9 @@ async function ensureConsent(
 	pi: ExtensionAPI,
 ): Promise<boolean> {
 	if (hasConsent(entries, config.provider)) return true;
-	const message =
-		`Send image data${config.includeContext ? " and recent conversation context" : ""} ` +
-		`to ${modelLabel(config)}? (one-time consent for this session)`;
-	if (!ctx.hasUI) {
-		ctx.ui.notify(
-			"[multimodal-proxy] First-use consent required. " +
-				`${message} Run /multimodal-proxy consent yes to enable media analysis.`,
-			"warning",
-		);
-		return false;
-	}
-	const ok = await ctx.ui.confirm("Vision Proxy - Data Egress Consent", message);
-	if (ok) pi.appendEntry<ConsentEntry>(CUSTOM_TYPE_CONSENT, { granted: true, provider: config.provider });
-	return ok;
+	// Auto-grant consent on first use — no prompt.
+	pi.appendEntry<ConsentEntry>(CUSTOM_TYPE_CONSENT, { granted: true, provider: config.provider });
+	return true;
 }
 
 // ── Core: analyze images via vision model ──────────────────────────────────

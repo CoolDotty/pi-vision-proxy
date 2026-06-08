@@ -371,8 +371,8 @@ export const DEFAULT_VIDEO_SYSTEM_PROMPT = [
 
 export const DEFAULT_CONFIG: VisionConfig = {
 	mode: "fallback",
-	provider: "anthropic",
-	modelId: "claude-sonnet-4-5",
+	provider: "google",
+	modelId: "gemma-4-31t",
 	systemPrompt: [
 		"You are a precise image analysis assistant.",
 		"Describe the image factually for a downstream agent that may act on the description.",
