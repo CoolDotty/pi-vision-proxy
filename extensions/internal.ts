@@ -387,8 +387,8 @@ export const DEFAULT_CONFIG: VisionConfig = {
 	maxBatch: 4,
 	cacheSize: 50,
 	pHashSimilarityThreshold: 0.80,
-	videoProvider: "xai",
-	videoModelId: "grok-4.3",
+	videoProvider: "google",
+	videoModelId: "gemma-4-31t",
 	videoSystemPrompt: DEFAULT_VIDEO_SYSTEM_PROMPT,
 	groundingModels: {
 		"Qwen/Qwen2.5-VL-3B-Instruct": { format: "qwen_pixels" },

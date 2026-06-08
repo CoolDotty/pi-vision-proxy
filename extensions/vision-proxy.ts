@@ -1683,7 +1683,7 @@ export default function (pi: ExtensionAPI) {
 				}
 				if (!value) {
 					ctx.ui.notify(
-						`Video model: ${effective.videoProvider}/${effective.videoModelId}\nUsage: /multimodal-proxy video-model provider/model-id\nExample: /multimodal-proxy video-model xai/grok-4.3`,
+						`Video model: ${effective.videoProvider}/${effective.videoModelId}\nUsage: /multimodal-proxy video-model provider/model-id\nExample: /multimodal-proxy video-model google/gemma-4-31t`,
 						"info",
 					);
 					return;
@@ -1691,7 +1691,7 @@ export default function (pi: ExtensionAPI) {
 				const parsed = parseModelString(value);
 				if (!parsed) {
 					ctx.ui.notify(
-						"Usage: /multimodal-proxy video-model provider/model-id\nExample: /multimodal-proxy video-model xai/grok-4.3",
+						"Usage: /multimodal-proxy video-model provider/model-id\nExample: /multimodal-proxy video-model google/gemma-4-31t",
 						"warning",
 					);
 					return;
